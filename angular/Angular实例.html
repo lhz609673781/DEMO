@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular实例</title>
+    <script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+    <!--<div ng-app="" ng-init="firstName='lhz';num1=10;num2=20">-->
+        <!--<input type="text" ng-model="name">-->
+        <!--<h1>hello{{name}}</h1>-->
+
+        <!--&lt;!&ndash;-->
+            <!--初始化:可以带对象/字符串/数字/数组-->
+        <!--&ndash;&gt;-->
+        <!--<p>姓名为：{{firstName}}</p>-->
+        <!--<p>总值：<span ng-bind='num1*num2'></span></p>-->
+    <!--</div>-->
+
+    <!--带有效的html5的指令   只是写法更加标准-->
+    <!--<div data-ng-app="" data-ng-init="firstName='lhz'">-->
+        <!--<p>你叫<span data-ng-bind="firstName"></span></p>-->
+    <!--</div>-->
+
+    <!--控制器-->
+    <!--<div ng-app="myApp" ng-controller="myControler">-->
+        <!--what your name: <input type="text" ng-model="myName">-->
+        <!--<p>你的名字是：{{myName}}</p>-->
+        <!---->
+    <!--</div>-->
+
+    <!--<script>-->
+        <!--var _myApp = angular.module('myApp',[]);-->
+        <!--_myApp.controller('myControler',function($scope){-->
+            <!--$scope.myName = 'lhz';-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--<div ng-app="" ng-init="firstName='lhz'">-->
+        <!--<input type="text" ng-model="firstName">-->
+        <!--你输入了：<span ng-bind="firstName"></span>-->
+    <!--</div>-->
+
+
+    <!--<div ng-app="myApp" ng-controller="myControler">-->
+        <!--姓：<input type="text" ng-model="firstName">-->
+        <!--名：<input type="text" ng-model="lastName">-->
+        <!--<p ng-bind="allName()"></p>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--var _myApp = angular.module('myApp',[]);-->
+            <!--_myApp.controller('myControler',function($scope){-->
+                <!--$scope.firstName = '凌';-->
+                <!--$scope.lastName = '红竹';-->
+                <!--$scope.allName = function(){-->
+                    <!--return $scope.firstName + "    " +$scope.lastName;-->
+                <!--}-->
+            <!--})-->
+    <!--</script>-->
+
+    <!--表单-->
+    <!--<div ng-app="myapp" ng-controller="mycontroller">-->
+        <!--数量：<input type="text" ng-model="config.shuliang">-->
+        <!--价格：<input type="text" ng-model="config.jiage">-->
+        <!--总价 = {{total() | currency}}-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--var _myzpp = angular.module('myapp',[]);-->
+        <!--_myzpp.controller('mycontroller',function($scope){-->
+            <!--$scope.config = {-->
+                <!--shuliang:1,-->
+                <!--jiage:9.99-->
+            <!--};-->
+            <!--var x = $scope.config;-->
+            <!--$scope.total = function(){-->
+                <!--return x.shuliang * x.jiage ;-->
+            <!--}-->
+        <!--})-->
+    <!--</script>-->
+
+
+    <!--orderBy   filter-->
+    <!--<div ng-app="myapp" ng-controller="mgctrl">-->
+        <!--<p>循环对象</p>-->
+        <!--<input type="text" ng-model="test">-->
+        <!--<ul>-->
+            <!--<li ng-repeat="x in names | filter:test | orderBy:'contry'">-->
+                <!--{{x.name+","+x.contry}}-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--var _myapp = angular.module("myapp",[]);-->
+        <!--_myapp.controller('mgctrl',function($scope){-->
+            <!--$scope.names = [-->
+                <!--{name:'Hege',contry:'Sweden'},-->
+                <!--{name:'Jani',contry:'Norway'},-->
+                <!--{name:'Kai',contry:'Denmark'}-->
+            <!--]-->
+        <!--})-->
+    <!--</script>-->
+
+    <!--
+        读取静态json文件
+        但是下面的地址有跨域的问题，无法请求到数据
+        有序号要求的：{{$index + 1}}
+    -->
+    <!--<div ng-app="myApp" ng-controller="myCtrl">
+        <ul>
+            <li ng-repeat="x in names">
+                {{x.name+"+++++"+x.Country}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var myApp = angular.module('myApp',[]);
+        myApp.controller('myCtrl',function($scope,$http){
+            $http.get("http://www.runoob.com/try/angularjs/data/sites.php")
+                .success(function(response){
+                    $scope.names = response.sites;
+                })
+        })
+    </script>-->
+
+    <!--处理奇偶数表格行-->
+   <!-- <div ng-app="myApp" ng-controller="myCtrl">
+        <table>
+            <tr ng-repeat="x in names">
+                <td ng-if="$odd" style="background:#000">{{x.name}}</td>
+                <td ng-if="$even">{{x.name}}</td>
+                <td ng-if="$odd" style="background:#000">{{x.Country}}</td>
+                <td ng-if="$even">{{x.Country}}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var myApp = angular.module('myApp',[]);
+        myApp.controller('myCtrl',function($scope,$http){
+            $http.get("http://www.runoob.com/try/angularjs/data/sites.php")
+                .then(function(response){
+                    $scope.names = respnse.data.sites
+                })
+        })
+    </script>-->
+
+    <!--
+        指令
+        ng-disabled
+        ng-show  与ng-hide相反
+    -->
+    <!--<div ng-app=""  ng-init="mySwitch=true">
+        <p>
+            <button ng-disabled="mySwitch">点我！</button>
+        </p>
+        <input type="checkbox" ng-model="mySwitch">按钮
+
+        <p ng-show="true">我是可见的</p>
+        <p ng-show="false">我是不可见的</p>
+    </div>-->
+</body>
+</html>
