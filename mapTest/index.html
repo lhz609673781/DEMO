@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>map</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #container{
+            height: 800px;
+            width: 800px;
+            background: pink;
+        }
+        .amap-logo {
+            right: 0 !important;
+            left: auto !important;
+            display: none !important;
+        }
+        .amap-copyright {
+            right: 70px !important;
+            left: auto !important;
+            display: none !important;
+        }
+        .amap-marker-label{
+            border: none;
+            background: none;
+            color: #000;
+            font-size: 16px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.0&key=7aaf2065a43a29c53cfa229e849eeb25"></script>
+    <script>
+        var map = new AMap.Map('container', {//创建地图对象
+            pitch:75,
+            viewMode:'3D',
+            zoom: 15,
+            center: [121.363506,31.285348]
+        });
+        var marker = new AMap.Marker({
+            position: [121.363506,31.285348],
+            title: '远成集团',
+//            content: '远成集团',
+            map: map,
+            animation: 'AMAP_ANIMATION_BOUNCE'
+//            icon : 'http://vdata.amap.com/icons/b18/1/2.png',//24px*24px
+        })
+        marker.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
+            offset: new AMap.Pixel(-30, -30),//修改label相对于maker的位置
+            content: "远成集团"
+        });
+        var markerr = new AMap.Marker({
+            position: [121.412923,31.274511],
+            title: '铂金华府',
+//            content: '铂金华府',
+            map: map
+//            animation: 'AMAP_ANIMATION_BOUNCE'
+//            icon : 'http://vdata.amap.com/icons/b18/1/2.png',//24px*24px
+        })
+        markerr.setLabel({//label默认蓝框白底左上角显示，样式className为：amap-marker-label
+            offset: new AMap.Pixel(-30, -30),//修改label相对于maker的位置
+            content: "铂金华府"
+        });
+    </script>
+</body>
+</html>
