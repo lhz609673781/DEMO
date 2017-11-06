@@ -1,0 +1,79 @@
+/*
+    created by lhz on 2017/10/12
+    excell页面样式
+*/
+.select-file{
+    position: relative;
+}
+#excell-file {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.info-btn {
+    width: 100px;
+    margin: 10px;
+}
+.loading-model{margin: 10px;font-size: 15px;}
+.load-model{cursor: pointer; color: #FF5722;}
+.layui-table-view {margin: 10px 15px;}
+.do-btn{float: right;}
+.toSubmit, .toReturn{margin-right: 10px;}
+.no-data-copy{
+    color: #666;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
